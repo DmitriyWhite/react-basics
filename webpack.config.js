@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 let conf = {
     entry: path.join(__dirname, './src', 'Index'),
@@ -40,9 +41,11 @@ let conf = {
                                             'last 20 version'
                                         ],
                                         grid: true
-                                    })
+                                    }),
+                                    cssnano({ preset: 'default' })
                                 ],
-                                sourceMap: true
+                                sourceMap: true,
+                                minimize: true
                             }
                         }
                     ]
@@ -57,8 +60,7 @@ let conf = {
                         {
                             loader: 'css-loader',
                             options: {
-                                minimize: true,
-                                sourceMap: true
+                                sourceMap: true,
                             }
                         },
                         {
@@ -71,9 +73,11 @@ let conf = {
                                             'last 20 version'
                                         ],
                                         grid: true
-                                    })
+                                    }),
+                                    cssnano({ preset: 'default' })
                                 ],
-                                sourceMap: true
+                                sourceMap: true,
+                                minimize: true
                             }
                         },
                         {
