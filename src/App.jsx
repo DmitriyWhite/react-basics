@@ -1,36 +1,30 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+
+import Header from './components/Header';
+import Todo from './components/Todo';
+
 class App extends Component {
     render() {
         return (
             <main className="section section--main">
-                <div className="header">
-                    <h1 className="header__h1">React Todo</h1>
-                </div>
+                <Header title={this.props.title}/>
+
                 <section className="todo-list">
-                    <div className="todo completed">
-                        <button className="todo__checkbox icon">
-                            <i className="material-icons">check_box</i>
-                        </button>
-                        <span className="todo__title">Изучить JS</span>
-
-                        <button className="todo__cart icon">
-                            <i className="material-icons">delete</i>
-                        </button>
-                    </div>
-                    <div className="todo">
-                        <button className="todo__checkbox icon">
-                            <i className="material-icons">check_box_outline_blank</i>
-                        </button>
-                        <span className="todo__title">Изучить react</span>
-
-                        <button className="todo__cart icon">
-                            <i className="material-icons">delete</i>
-                        </button>
-                    </div>
+                    <Todo title={'Изучить JS'} completed={true}/>
+                    <Todo title={'Изучить react'} completed={false}/>
                 </section>
             </main>
         );
     }
 }
+
+App.propTypes = {
+    title: PropTypes.string.isRequired
+};
+
+App.defaultProps = {
+    title: 'React Todo'
+};
 
 export default App;
