@@ -11,8 +11,11 @@ class App extends Component {
                 <Header title={this.props.title}/>
 
                 <section className="todo-list">
-                    <Todo title={'Изучить JS'} completed={true}/>
-                    <Todo title={'Изучить react'} completed={false}/>
+                    {
+                        this.props.todos.map((todo) =>
+                            <Todo key={todo.id} title={todo.title} completed={todo.completed}/>
+                        )
+                    }
                 </section>
             </main>
         );
@@ -20,7 +23,12 @@ class App extends Component {
 }
 
 App.propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    todos: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        completed: PropTypes.bool.isRequired
+    })).isRequired
 };
 
 App.defaultProps = {
