@@ -33,6 +33,13 @@
         font-size: 26px;
     }
 
+    &__item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 100%;
+    }
+
     &.completed {
         color: #ccc;
 
