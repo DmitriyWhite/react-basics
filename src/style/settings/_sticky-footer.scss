@@ -1,0 +1,33 @@
+/* body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+} */
+
+html {
+    display: flex;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        display: block;
+    }
+}
+
+header, .section--header,
+footer, .section--footer {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+main {
+    flex-grow: 1;
+}

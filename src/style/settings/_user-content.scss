@@ -1,0 +1,45 @@
+.user-content {
+    h1 {
+		@extend .headings-h1;
+	}
+    h2 {
+        @extend .headings-h2;
+    }
+    h3 {
+        @extend .headings-h3;
+    }
+    p,
+    ul {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    p,
+	ul {
+		margin-bottom: 1.412em;
+		font-size: $default-size;
+
+    }
+    
+    strong {
+        font-family: $font-family-bold;
+    }
+
+    .align_left {
+		float: left;
+		margin-right: 20px;
+	}
+
+	.align_right {
+		float: right;
+		margin-left: 20px;
+	}
+
+	.align_center {
+		text-align: center;
+	}
+
+	img{
+		max-width: 100%;
+	}
+}

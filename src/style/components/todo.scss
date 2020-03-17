@@ -1,0 +1,47 @@
+.todo {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+
+    &:last-child {
+        border: none;
+    }
+
+    &__checkbox, &__cart {
+        padding: 0;
+        border: none;
+        cursor: pointer;
+
+        i {
+            font-size: 30px;
+        }
+    }
+
+    &__cart {
+        margin-left: auto;
+    }
+
+    &__icon {
+        padding: 0;
+        border: none;
+        font-size: 30px;
+    }
+
+    &__title {
+        padding-left: 20px;
+        font-size: 26px;
+    }
+
+    &.completed {
+        color: #ccc;
+
+        i {
+            color: #ccc;
+        }
+
+        .todo__title {
+            text-decoration: line-through;
+        }
+    }
+}

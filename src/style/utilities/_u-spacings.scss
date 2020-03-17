@@ -1,0 +1,101 @@
+/* ==========================================================================
+   #SPACINGS
+   ========================================================================== */
+
+/// Скопировано из bootstrap/scss/utilities/_spacing.scss.
+/// Всем классам добавлен префикс "u-"
+/// Карта $spacers заменена так, чтобы получить классы со
+
+/* stylelint-disable string-quotes */
+
+// stylelint-disable declaration-no-important
+
+// Margin and Padding
+
+// stylelint-disable
+$spacers: (
+    0: 0,
+    5: 5px,
+    8: 8px,
+    10: 10px,
+    15: 15px,
+    17: 17px,
+    20: 20px,
+    25: 25px,
+    30: 30px,
+    35: 35px,
+    40: 40px,
+    45: 45px,
+    50: 50px,
+    55: 55px,
+    60: 60px,
+    65: 65px,
+    70: 70px,
+    75: 75px,
+    80: 80px,
+    85: 85px,
+    90: 90px,
+    95: 95px,
+    100: 100px,
+    105: 105px,
+    110: 110px,
+    120: 120px,
+    140: 140px,
+    165: 165px,
+    220: 220px,
+    268: 268px
+);
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $size, $length in $spacers {
+            @each $prop, $abbrev in (margin: m, padding: p) {
+                .u-#{$abbrev}#{$infix}-#{$size} {
+                    #{$prop}: $length !important;
+                }
+                .u-#{$abbrev}t#{$infix}-#{$size},
+                .u-#{$abbrev}y#{$infix}-#{$size} {
+                    #{$prop}-top: $length !important;
+                }
+                .u-#{$abbrev}r#{$infix}-#{$size},
+                .u-#{$abbrev}x#{$infix}-#{$size} {
+                    #{$prop}-right: $length !important;
+                }
+                .u-#{$abbrev}b#{$infix}-#{$size},
+                .u-#{$abbrev}y#{$infix}-#{$size} {
+                    #{$prop}-bottom: $length !important;
+                }
+                .u-#{$abbrev}l#{$infix}-#{$size},
+                .u-#{$abbrev}x#{$infix}-#{$size} {
+                    #{$prop}-left: $length !important;
+                }
+            }
+            $size: $size + 5;
+        }
+
+        // Some special margin utils
+        .u-m#{$infix}-auto {
+            margin: auto !important;
+        }
+        .u-mt#{$infix}-auto,
+        .u-my#{$infix}-auto {
+            margin-top: auto !important;
+        }
+        .u-mr#{$infix}-auto,
+        .u-mx#{$infix}-auto {
+            margin-right: auto !important;
+        }
+        .u-mb#{$infix}-auto,
+        .u-my#{$infix}-auto {
+            margin-bottom: auto !important;
+        }
+        .u-ml#{$infix}-auto,
+        .u-mx#{$infix}-auto {
+            margin-left: auto !important;
+        }
+    }
+}
+
+/* stylelint-enable string-quotes */

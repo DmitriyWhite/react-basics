@@ -1,0 +1,24 @@
+// stylelint-disable declaration-no-important
+
+/// Скопировано из bootstrap/scss/utilities/_text.scss.
+/// Всем классам добавлен префикс "u-"
+
+// Alignment
+
+.u-text-justify  { text-align: justify !important; }
+.u-text-nowrap   { white-space: nowrap !important; }
+// .text-truncate { @include text-truncate; }
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .u-text#{$infix}-left   { text-align: left !important; }
+    .u-text#{$infix}-right  { text-align: right !important; }
+    .u-text#{$infix}-center { text-align: center !important; }
+  }
+}
+
+

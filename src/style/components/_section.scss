@@ -1,0 +1,20 @@
+/* ==========================================================================
+   #SECTION
+   ========================================================================== */
+
+/**
+ * This is an example component. Extend inuitcss by building your own components
+ * that make up your UI. Component classes are prefixed with a `c-`.
+ */
+
+.section {
+    @include clearfix; // padding: 0 10px;
+    font-family: $font-family-copy;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.section--main {
+    max-width: 1000px;
+}
+
