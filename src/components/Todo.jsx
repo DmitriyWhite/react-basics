@@ -5,25 +5,11 @@ import Button from './Button';
 import Checkbox from './Checkbox';
 
 class Todo extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            completed: this.props.completed
-        }
-    }
-
-    handleClick(event) {
-        this.setState({
-            completed: !this.state.completed
-        })
-    }
-
     render() {
         return (
-            <div className={`todo ${this.state.completed ? 'completed' : ''}`}>
-                <div className="todo__item" onClick={() => this.handleClick()}>
-                    <Checkbox checked={this.state.completed}/>
+            <div className={`todo ${this.props.completed ? 'completed' : ''}`}>
+                <div className="todo__item" onClick={() => this.props.onStatusChange(this.props.id)}>
+                    <Checkbox checked={this.props.completed}/>
                     <span className="todo__title">{this.props.title}</span>
                 </div>
                 <Button className={'todo__delete icon'} icon={'delete'}/>
@@ -34,7 +20,9 @@ class Todo extends Component {
 
 Todo.propTypes = {
     title: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired
+    id: PropTypes.number.isRequired,
+    completed: PropTypes.bool.isRequired,
+    onStatusChange: PropTypes.func.isRequired
 };
 
 Todo.defaultProps = {
