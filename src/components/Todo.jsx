@@ -12,7 +12,7 @@ class Todo extends Component {
                     <Checkbox checked={this.props.completed}/>
                     <span className="todo__title">{this.props.title}</span>
                 </div>
-                <Button className={'todo__delete icon'} icon={'delete'}/>
+                <Button className={'todo__delete icon'} icon={'delete'} onClick={() => this.props.onDelete(this.props.id)}/>
             </div>
         );
     }
@@ -22,7 +22,8 @@ Todo.propTypes = {
     title: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     completed: PropTypes.bool.isRequired,
-    onStatusChange: PropTypes.func.isRequired
+    onStatusChange: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
 };
 
 Todo.defaultProps = {

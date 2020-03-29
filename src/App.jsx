@@ -10,7 +10,10 @@ class App extends Component {
 
         this.state = {
             todos: this.props.initialData
-        }
+        };
+
+        this.handleStatusChange = this.handleStatusChange.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     handleStatusChange(id) {
@@ -25,6 +28,11 @@ class App extends Component {
         this.setState({todos})
     }
 
+    handleDelete(id) {
+        let todos = this.state.todos.filter(todo => todo.id !== id);
+        this.setState({todos})
+    }
+
     render() {
         return (
             <main className="section section--main">
@@ -33,7 +41,14 @@ class App extends Component {
                 <section className="todo-list">
                     {
                         this.state.todos.map((todo) =>
-                            <Todo key={todo.id} id={todo.id} title={todo.title} completed={todo.completed} onStatusChange={this.handleStatusChange.bind(this)}/>
+                            <Todo
+                                key={todo.id}
+                                id={todo.id}
+                                title={todo.title}
+                                completed={todo.completed}
+                                onStatusChange={this.handleStatusChange}
+                                onDelete={this.handleDelete}
+                            />
                         )
                     }
                 </section>
