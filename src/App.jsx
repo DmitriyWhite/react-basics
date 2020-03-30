@@ -13,8 +13,38 @@ class App extends Component {
             todos: this.props.initialData
         };
 
+        this.handleAdd = this.handleAdd.bind(this);
+        this.handleChangeTodo = this.handleChangeTodo.bind(this);
         this.handleStatusChange = this.handleStatusChange.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+    }
+
+    nextId() {
+        this._nextId = this._nextId || 4;
+        return this._nextId++;
+    }
+
+    handleAdd(title) {
+        let todo = {
+            id: this.nextId(),
+            title: title,
+            completed: false
+        };
+        let todos = [...this.state.todos, todo];
+
+        this.setState({todos})
+    }
+
+    handleChangeTodo(title, id) {
+        let todos = this.state.todos.map(todo => {
+            if (todo.id === id) {
+                todo.title = title
+            }
+
+            return todo
+        });
+
+        this.setState({todos})
     }
 
     handleStatusChange(id) {
