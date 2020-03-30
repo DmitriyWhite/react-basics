@@ -49,11 +49,12 @@ class App extends Component {
                                 completed={todo.completed}
                                 onStatusChange={this.handleStatusChange}
                                 onDelete={this.handleDelete}
+                                onEdit={this.handleChangeTodo}
                             />
                         )
                     }
 
-                    <Form />
+                    <Form onAdd={this.handleAdd}/>
                 </section>
             </main>
         );
