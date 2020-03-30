@@ -4,10 +4,6 @@
     align-items: center;
     border-bottom: 1px solid #ccc;
 
-    &:last-child {
-        border: none;
-    }
-
     &__checkbox, &__delete {
         padding: 0;
         border: none;

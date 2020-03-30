@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from './components/Header';
 import Todo from './components/Todo';
+import Form from './components/Form';
 
 class App extends Component {
     constructor(props) {
@@ -51,6 +52,8 @@ class App extends Component {
                             />
                         )
                     }
+
+                    <Form />
                 </section>
             </main>
         );
