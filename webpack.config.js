@@ -141,6 +141,10 @@ let conf = {
         overlay: true
     },
 
+    watchOptions: {
+        ignored: /node_modules/
+    },
+
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'index.html'),
