@@ -42,7 +42,7 @@ let conf = {
                                         ],
                                         grid: true
                                     }),
-                                    cssnano({ preset: 'default' })
+                                    cssnano({preset: 'default'})
                                 ],
                                 sourceMap: true,
                                 minimize: true
@@ -74,7 +74,7 @@ let conf = {
                                         ],
                                         grid: true
                                     }),
-                                    cssnano({ preset: 'default' })
+                                    cssnano({preset: 'default'})
                                 ],
                                 sourceMap: true,
                                 minimize: true
@@ -135,10 +135,13 @@ let conf = {
     devServer: {
         inline: true,
         contentBase: './public',
-        port: 3000,
+        port: 8000,
         open: true,
         hot: true,
-        overlay: true
+        overlay: true,
+        proxy: {
+            '/api': 'http://localhost:3000'
+        }
     },
 
     watchOptions: {

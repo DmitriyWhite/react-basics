@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use((request, response, next) => {
-    request.setHeader('Cache-Control', 'no-cache');
+    response.setHeader('Cache-Control', 'no-cache');
     next();
 });
 
